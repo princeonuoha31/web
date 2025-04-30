@@ -4,17 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Onuoha Prince Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     /* Global Styles */
     :root {
-       --primary-color: rgb(120, 25, 25);
-      --secondary-color:rgb(160, 25, 25);
-      --dark-color: #1e293b;
-      --light-color: #f8fafc;
-      --accent-color: #f59e0b;
-      --transition: all 0.3s ease;
+    --primary-color: rgb(120, 25, 25);
+    --secondary-color: rgb(168, 25, 25);
+    --dark-color: #1e293b;
+    --light-color: #2c343d;
+    --accent-color: #f59e0b;
+    --transition: all 0.3s ease;
+    --another-color:rgb(245, 118, 118);
     }
 
     * {
@@ -22,7 +23,6 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Poppins', sans-serif;
       line-height: 1.6;
@@ -30,7 +30,10 @@
       background-color: var(--light-color);
       overflow-x: hidden;
       position: relative;
+      color: #f8fafc;
+      padding-top: 80px;
     }
+    
 
     /* Background Watermark */
     body::before {
@@ -42,11 +45,15 @@
       height: 100%;
       z-index: -1;
       pointer-events: none;
+      background-image: url('pple.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
     }
 
     a {
       text-decoration: none;
-      color: inherit;
+      color: #7dd3fc;
     }
 
     ul {
@@ -89,6 +96,7 @@
     h1, h2, h3 {
       line-height: 1.2;
       margin-bottom: 1.5rem;
+      color: #f59e0b;
     }
 
     h1 {
@@ -124,17 +132,21 @@
       top: 0;
       left: 0;
       width: 100%;
-      background-color: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      background-color: transparent; /* Fully transparent */
+      backdrop-filter: blur(8px); /* Optional: Adds glass effect */
       z-index: 1000;
       transition: var(--transition);
-    }
-
-    nav.scrolled {
-      background-color: rgba(255, 255, 255, 0.98);
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-      padding: 0.5rem 0;
-    }
+      padding: 1.5rem 0;
+  }
+  
+  nav.scrolled {
+      background-color: rgba(30, 41, 59, 0.8); /* Dark semi-transparent when scrolled */
+      backdrop-filter: blur(12px); /* Stronger blur when scrolled */
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      padding: 0.8rem 0;
+      color: var(--accent-color);
+  }
+  
 
     nav ul {
       display: flex;
@@ -143,14 +155,14 @@
     }
 
     nav li {
+      position: relative;
       margin: 0 1.5rem;
     }
 
     nav a {
+      color: #f8fafc; /* Light text color */
       font-weight: 600;
-      position: relative;
-      padding: 0.5rem 0;
-    }
+  }
 
     nav a::after {
       content: '';
@@ -162,7 +174,9 @@
       background-color: var(--primary-color);
       transition: var(--transition);
     }
-
+    nav a:hover {
+      color: white;
+  }
     nav a:hover::after {
       width: 100%;
     }
@@ -194,14 +208,14 @@
     .hero h1 {
       font-size: clamp(2.5rem, 5vw, 4rem);
       margin-bottom: 1.5rem;
-      color: var(--dark-color);
+      color:#f8fafc;
     }
 
     .hero p {
       font-size: 1.2rem;
       max-width: 700px;
       margin: 0 auto 2.5rem;
-      color: #475569;
+      color: var(--text-secondary);
     }
 
     /* Profile Image */
@@ -214,15 +228,18 @@
       height: 150px;
       border-radius: 50%;
       object-fit: cover;
-      border: 5px solid white;
+      border: 5px solid rgba(0, 0, 0, 0.5);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
     /* About Section */
     #about {
-      background-color: white;
+      background-color:  #2c343d;
+      background-color: rgb(255,255,255,0);
     }
-
+    #about p {
+      color: inherit; /* Forces inheritance from body */
+  }
     #about .content {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -255,6 +272,7 @@
     /* Portfolio Section */
     #portfolio {
       background-color: #f1f5f9;
+      background-color: rgb(255,255,255,0);
     }
 
     .portfolio-grid {
@@ -264,14 +282,17 @@
     }
 
     .item {
-      background-color: white;
+      background-color: rgb(3, 3, 3);
+      background-color:rgb(0,0,0,0.2);
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 5px 15px rgba(100, 100, 100, 0.1);
       transition: var(--transition);
       position: relative;
     }
-
+    #portfolio p {
+      color: inherit; /* Forces inheritance from body */
+  }
     .item:hover {
       transform: translateY(-10px);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
@@ -280,20 +301,34 @@
     .item-content {
       padding: 2rem;
     }
-
+    #contact p {
+      color: inherit; /* Forces inheritance from body */
+  }
     .item h3 {
       color: var(--primary-color);
     }
 
     /* Contact Section */
     #contact {
-      background-color: white;
+      padding:1rem;
+      background-color: rgba(255, 255, 255, 0); /* 0.5 is 50% transparency */
     }
-
+    .contact-container {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+  }
+  .contact-info {
+      flex: 1;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+  }
     #contact-form {
       max-width: 600px;
       margin: 0 auto;
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 1.5rem;
     }
 
@@ -302,6 +337,7 @@
       width: 100%;
       padding: 1rem;
       border: 1px solid #e2e8f0;
+      background-color: rgb(0, 0, 0,0.3);
       border-radius: 5px;
       font-family: inherit;
       transition: var(--transition);
@@ -310,14 +346,39 @@
     #contact-form input:focus,
     #contact-form textarea:focus {
       outline: none;
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-    }
+      border-color: var(blanchedalmond);
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+    color: white; /* Text color when typing */
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    font-family: inherit;
+    transition: var(--transition);
+    padding: 12px 15px; /* Better spacing */
+    /* Hover effects */
+    border-color: #94a3b8; /* Light gray border on hover */
+}
 
-    #contact-form textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
+/* Active state */
+#contact-form input:active,
+#contact-form textarea:active {
+    border-color: var(--light-color); /* Your red color */
+}
+
+
+/* Placeholder text color */
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+    color: #cbd5e1; /* Light gray placeholder */
+    opacity: 0.8;
+}
+
+    
+#contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
     /* Footer */
     footer {
@@ -409,9 +470,9 @@
   <section id="home" class="hero">
     <div class="content">
       <div class="profile-container">
-        <img src="https://princeonuoha31.github.io/web/pple.png" alt="Onuoha Prince" class="profile-image">
+        <img src="pple.png" alt="Onuoha Prince" class="profile-image">
       </div>
-      <h1>Hello!, My name is Onuoha Prince</h1>
+      <h1>Hello! My name is Onuoha Prince</h1>
       <p>I'm a student of the Federal University of Technology, Owerri
          in the department of Information Technology</p>
       <p>And I specialize in front end development.</p>
@@ -468,33 +529,42 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
+</section>
+<!-- Contact Section -->
+<section id="contact">
     <div class="content">
-      <h2>Contact Me</h2>
-      <form id="contact-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit" class="button">Send</button>
-      </form>
+        <h2>Contact Me</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Let's Talk</h3>
+                <p>Feel free to reach out for collaborations or just a friendly hello!</p>
+                <div class="contact-details">
+                    <p><i class="fas fa-phone"></i> +234 810 932 5812</p>
+                    <p><i class="fas fa-envelope"></i> princeonuoha31@gmail.com</p>
+                </div>
+            </div>
+            <form id="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit" class="button">Send</button>
+            </form>
+        </div>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
+</section>
+<!-- Footer -->
+<footer>
     <p>© 2025 Onuoha Prince Portfolio. All Rights Reserved.</p>
-  </footer>
-
-  <script>
+</footer>
+<script>
     // Navbar scroll effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', function() {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     });
 
     // Smooth scrolling for navigation links
